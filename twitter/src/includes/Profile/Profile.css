@@ -1,0 +1,213 @@
+.profile-img {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    background-image: url('../../images/editProfile.png');
+   
+}   
+.profile-img-container {
+    position: absolute;
+    left:10px;
+    bottom: 0;
+    transform: translateY(50%);
+    color: #fff;
+    background-color: #00acee ;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.user-activated-img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+.edit-profile-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+
+
+}
+.edit-profile-btn-wrapper a {
+    padding: 8px 18px;
+    cursor: pointer;
+   border-radius: 15px;
+   border: 2px solid #00acee ;
+   color: #00acee;
+   transition: 0.6s ease;
+   text-decoration: none;
+   display: inline-block;
+}
+.edit-profile-btn-wrapper button {
+    padding: 8px 18px;
+    cursor: pointer;
+   border-radius: 15px;
+   border: 2px solid #00acee ;
+   color: #00acee;
+   transition: 0.6s ease;
+   text-decoration: none;
+   display: inline-block;
+   outline: none;
+
+}
+.edit-profile-btn-wrapper a:hover {
+    background-color: #00acee;
+    color: #fff;
+}
+.edit-profile-btn-wrapper button:hover {
+    background-color: #00acee;
+    color: #fff;
+}
+.follower-text {
+    color: rgb(83, 100, 113);
+    font-weight: 300;
+    
+}
+.user-profile-description {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 12px;
+}
+.user-details,.user-following-info {
+    margin-top: 15px;
+}
+.user-following-info-details {
+    display: inline-block;
+}
+.user-followings {
+    font-size: 13px;
+}
+.user-location,.user-date,.user-followings-text {
+    color: rgb(83, 100, 113);
+    font-size: 14px;
+    font-weight: 300;
+}
+.user-following-info-details {
+  margin-right: 20px;
+}
+.user-followings-text {
+    letter-spacing: 0.75px;
+}
+.user-sharings {
+    margin-top: 25px    ;
+}
+.twit-card {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+border-radius: 5px;
+padding: 20px;
+
+}
+.twit-card-header {
+    display: flex;
+    align-items: center;
+}
+.twit-card-header span {
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: 400;
+}
+.edited-img {
+    width: min(300px,80%);
+    height: 300px;
+    margin: auto;
+}
+.shared-twit-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.twit-card-body {
+    margin-top: 20px;
+    
+}
+.twit-card-body p {
+    font-size: 13px;
+    font-weight: 300;
+    
+}
+.err-search-msg {
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    
+}
+.divider {
+    margin: 40px 0;
+    background-color: black;
+    height: 1px;
+    width: 100%;
+}
+.box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    padding: 40px;
+   
+
+}
+.box h1 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+}
+.user-followings-container {
+    
+    width: 100%;
+  padding: 20px 2px;
+   overflow-x: auto;
+   white-space: nowrap;
+   display: flex;
+ 
+}
+
+
+.user-following-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px 2px #ccc;
+    display: inline-block;
+    height: 300px;
+    border-radius: 10px;
+    
+    min-width: 250px;
+    margin-right: 20px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+
+}
+.view-profile-btn {
+    background-color: #00acee;
+    padding: 5px;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 4px;
+    border: 0;
+    margin-top: 25px;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0.25;
+}
+.user-following-card-user {
+    font-weight: 400;
+    font-size: 16px;
+}
+.user-following-card-account-name {
+    color: rgb(83, 100, 113);
+    font-weight: 300;
+    font-size: 12px;
+}
+.make-bigger {
+    width: 60px;
+    height: 60px;
+}

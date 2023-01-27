@@ -1,0 +1,29 @@
+.popular-card {
+    padding: 0;
+    background-color: #e9e9e9;
+    border-radius: 9px;
+}
+.popular-divider {
+    margin: 0;
+}
+.popular-choose-user {
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+  
+    padding-right: 30px;
+}
+.align-items {
+    align-items: center;
+}
+.popular-choose-user:hover {
+    background-color: transparent;
+
+}
+.follow-button {
+    background-color: #393939;
+    color: #fff;
+    padding: 6px 16px;
+    cursor: pointer;
+    border: 0;
+}
