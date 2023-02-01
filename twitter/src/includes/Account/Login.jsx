@@ -6,7 +6,10 @@ import {GiConfirmed} from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import {login} from '../../redux/actions/Actions.js';
+
 const Login = () => {
+  const verify = useSelector((state) => state.verifyReducer);
+  
   const [isClicked,setIsClicked] = useState(false);
   const [err,setErr] = useState(false);
   const [message,setMessage] = useState(''); 
@@ -40,6 +43,13 @@ setMessage('Yanlış kullanıcı adı veya şifre');
 
 
   return (
+    <> {
+      !(verify.err) ?  
+      <div style={{"textAlign":"center","padding":"20px 0"}} id= "alert-success"  className="alert">
+      <span style={{"fontWeight":"400"}}> {verify.message} </span> 
+  </div>
+  : null
+    }
     <div className='container'>
         
     <div className='account-card-form'>
@@ -65,6 +75,7 @@ setMessage('Yanlış kullanıcı adı veya şifre');
     </div>
     </div>
     </div>
+    </>
   )
 }
 

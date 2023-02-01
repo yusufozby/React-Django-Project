@@ -4,8 +4,16 @@ import { createUser } from '../../services/userService'
 import { useState } from 'react'
 import {MdError} from 'react-icons/md';
 import {GiConfirmed} from 'react-icons/gi'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { success } from '../../redux/actions/Actions';
 
 const Register = () => {
+
+
+const dispatch = useDispatch();
+
+    const navigate = useNavigate();
    const [err,setErr] = useState(false);
    const [message,setMessage] = useState(''); 
      const [repPswd,setRepPswd] = useState('');
@@ -37,8 +45,9 @@ const handleRegister = (e) => {
 }
 else {
 createUser(newUser);
-setMessage('Kullanıcı başarıyla oluşturuldu !!');
-setErr(false);
+dispatch(success());
+
+navigate("/login");
 }
 
 

@@ -134,5 +134,9 @@ def pagenotfound(request):
     return render(request,"pagenotfound.html")    
 
 
-
+@api_view(['DELETE'])
+def deleteFollowing(request,pk):
+    deleteFollowing = Followings.objects.get(id=pk)
+    deleteFollowing.delete()
+    return Response("Following deleted Successfully !!");
 

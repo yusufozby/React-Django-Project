@@ -4,19 +4,29 @@ import './Profile.css';
 import twitterImg from '../../images/anounymous.jpg';
 import {FaTwitter} from 'react-icons/fa';
 import {MdLocationPin,MdDateRange} from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  anounymous  from '../../images/anounymous.jpg';
+import axios from 'axios';
+import { getFollowings } from '../../redux/slices/FollowingSlice';
 
 const UserProfile = () => {
   const {user} = useSelector(state =>state.loginReducer)
 const {followings} = useSelector(state => state.FollowingSlice);
 
-
+const dispatch = useDispatch();
   const {twits} = useSelector(state => state.twitSlice);
   const userTwits = twits.filter(item => item.createdBy.user.id === user.user.id);
   const {likes} = useSelector(state => state.LikeSlice);
 
+  const deleteFollowing = async (id) => {
+    
+    await axios.delete("http://localhost:8000/api/deletefollowing/"+id).then((res) => {
+      
+    dispatch(getFollowings());
+    alert(res.data)
+  });
 
+  }
 
  const userLikes = likes.filter((element) => element.like === user.user.username);
 
@@ -142,6 +152,7 @@ userLikes.length !== 0 ?
                 <h5 className='user-following-card-account-name'>{item.followed.accountName}</h5>
                 <img className='shared-twit-img make-bigger mt-5' src={item.followed.profileImg ? item.followed.profileImg : anounymous} alt='' />
                 <a href={'/viewprofile/'+item.followed.id} className='view-profile-btn'>Profili Görüntüle</a>
+                <button style={{"border":"0","backgroundColor":"crimson","padding":"5px 20px","fontWeight":"400","cursor":"pointer"}} onClick={()=>deleteFollowing(item.id)} className='view-profile-btn'>Takibi iptal et</button>
               </div>
               ))
               : 

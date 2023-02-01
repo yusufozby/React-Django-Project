@@ -7,3 +7,10 @@ export const login = (payload) => {
 export const logout = () => {
     return {type:LOGOUT};
 }
+
+export const success = () => {
+    return {type:"SUCCESS"}
+};
+export const failed = () => {
+    return {type:"FAILED"};
+}

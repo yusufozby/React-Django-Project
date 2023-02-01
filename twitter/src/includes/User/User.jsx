@@ -34,7 +34,7 @@ setIsClicked(true);
 if(!twit){
    setErr(true);
    setMessage('Paylaşım metni boş bırakılmamalıdır.')
-
+   
 
 }
 
@@ -48,6 +48,7 @@ else {
    await axios.post("http://localhost:8000/api/createtwit/",newTwit).then((res) => console.log(res.data));
    setErr(false);
    setMessage('Paylaşım başarılı bir şekilde oluşturuldu')
+   window.location.href = "/profile"
 }
 }
   return (
@@ -72,7 +73,7 @@ else {
 <small className='profile-sub-title user-account-info'>{user.user.username}</small>
 <hr/>
 </div>
-<label className='user-account-info-title'>Soyisim</label>
+<label className='user-account-info-title'>Hesap Adı</label>
 
 <small className='profile-sub-title user-account-info'>{user.accountName}</small>
 <hr/>

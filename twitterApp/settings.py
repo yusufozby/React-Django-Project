@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
+import mimetypes
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,10 +27,10 @@ SECRET_KEY = 'django-insecure-%6@aj%$wt)t9ejmybw96u5fvqbmvs)44fsf0727iel%8l6s*2y
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    
+    "*"
 ]
 
-
+mimetypes.add_type("text/html",".html",True)
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'corsheaders',
-    'api'
+    'api',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
      "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'twitterApp.urls'
@@ -127,11 +129,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-  os.path.join(BASE_DIR,"twitter/build/static"),
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR,"twitter/build/static"),
 
-]
+# ]
+
+if(DEBUG==True): 
+    STATIC_URL = '/static/' 
+    MEDIA_URL = '' 
+    STATICFILES_DIRS=[ os.path.join(BASE_DIR,'twitter/build/static') ] 
+    STATIC_ROOT=os.path.join(BASE_DIR / 'staticfiles') 
+    MEDIA_ROOT=os.path.join(BASE_DIR / 'media') 
+else: 
+    STATIC_URL = '/static/' 
+    MEDIA_URL= 'media/' 
+    
+    STATIC_ROOT=os.path.join(BASE_DIR / 'staticfiles') 
+    MEDIA_ROOT=os.path.join(BASE_DIR / 'media') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

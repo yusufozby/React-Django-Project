@@ -48,6 +48,7 @@ data.append("accountName",accountName);
     
 localStorage.setItem("user",JSON.stringify(res.data));
 setErr(false);
+window.location.href = "/profile"
 setMessage('Kullanıcı başarılı bir şekilde güncellendi')
 setAccountName('')
 setAddress('');

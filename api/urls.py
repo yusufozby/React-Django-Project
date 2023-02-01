@@ -14,6 +14,7 @@ urlpatterns = [
     path('createfollowing/',createFollowing,name="create-following"),
     path('getfollowings/',getFollowings,name="get-all-followings"),
     path('changepassword/',changePassword,name="change-password"),
+    path('deletefollowing/<str:pk>',deleteFollowing,name="delete-following"),
     re_path('./*',pagenotfound,name="ewqewq")
     
 
