@@ -1,4 +1,8 @@
 import axios from "axios"
+import allReducers from "../redux/store";
+import { getAccounts } from "../redux/slices/AccountSlice";
+import { store } from "..";
+
 
 
 
@@ -17,7 +21,7 @@ export const createUser = async (account) => {
     newAccount.append('mySharings',account.mySharings);
     newAccount.append('description',account.description);
   
-    await axios.post("http://localhost:8000/api/createuser/",new URLSearchParams(newAccount)).then((res)=>console.log(res.data));
+    await axios.post("http://localhost:8000/api/createuser/",new URLSearchParams(newAccount)).then((res)=>store.dispatch(getAccounts()));
 }
 
 

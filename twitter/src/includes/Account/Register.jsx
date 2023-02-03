@@ -7,6 +7,7 @@ import {GiConfirmed} from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { success } from '../../redux/actions/Actions';
+import { getAccounts } from '../../redux/slices/AccountSlice';
 
 const Register = () => {
 
@@ -46,8 +47,9 @@ const handleRegister = (e) => {
 else {
 createUser(newUser);
 dispatch(success());
+dispatch(getAccounts());
 
-navigate("/login");
+navigate("/")
 }
 
 

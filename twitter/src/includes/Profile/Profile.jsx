@@ -19,13 +19,13 @@ const dispatch = useDispatch();
   const {likes} = useSelector(state => state.LikeSlice);
 
   const deleteFollowing = async (id) => {
-    
+    if(window.confirm("Takibi bırakmak istediğinizden Emin misiniz ?")) {
     await axios.delete("http://localhost:8000/api/deletefollowing/"+id).then((res) => {
       
     dispatch(getFollowings());
-    alert(res.data)
+ 
   });
-
+    }
   }
 
  const userLikes = likes.filter((element) => element.like === user.user.username);

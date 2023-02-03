@@ -6,7 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import allReducers from './redux/store';
 import {Provider} from 'react-redux'
 
-const store = configureStore({
+export const store = configureStore({
     reducer :allReducers
 })
 

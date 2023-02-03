@@ -6,10 +6,18 @@ import {GiConfirmed} from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import {login} from '../../redux/actions/Actions.js';
+import { useEffect } from 'react';
+import { getAccounts } from '../../redux/slices/AccountSlice';
+
 
 const Login = () => {
   const verify = useSelector((state) => state.verifyReducer);
   
+
+useEffect(()=>{
+ dispatch(getAccounts());
+},[])
+
   const [isClicked,setIsClicked] = useState(false);
   const [err,setErr] = useState(false);
   const [message,setMessage] = useState(''); 
